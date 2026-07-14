@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tamy Boutique · Warm Minimal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lora:ital,wght@0,400;0,500;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#F7F5F0;--text:#2C2824;--accent:#8B7D6B;--muted:rgba(44,40,36,0.06)}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Lora',serif;overflow-x:hidden;font-weight:400}
+h1,h2,h3,.display{font-family:'DM Serif Display',serif;font-weight:400}
+.amiri{font-family:'Amiri',serif}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:2.5rem 3rem;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,var(--bg) 0%,transparent)}
+nav a{color:var(--text);text-decoration:none;font-size:12px;transition:opacity 0.4s;opacity:0.6}
+nav a:hover{opacity:1}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6rem 2rem 2rem}
+.hero .pill{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:3rem;opacity:0.7}
+.hero .image-wrap{width:320px;height:420px;margin-bottom:2.5rem;position:relative}
+.hero .image-wrap::before{content:'';position:absolute;inset:-8px;border:1px solid var(--accent);opacity:0.2;border-radius:50% 50% 0 0/28% 28% 0 0}
+.hero .image-wrap img{width:100%;height:100%;object-fit:cover;border-radius:50% 50% 0 0/28% 28% 0 0}
+.hero h1{font-size:clamp(2.5rem,5vw,4.5rem);text-align:center;line-height:1;margin-bottom:1rem;font-style:italic}
+.hero .sub{font-size:14px;text-align:center;max-width:38ch;line-height:1.7;opacity:0.55;margin-bottom:2.5rem}
+.hero .cta{display:inline-block;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.25rem;transition:all 0.3s}
+.hero .cta:hover{opacity:0.5}
+
+section{padding:7rem 2rem}
+.section-inner{max-width:1000px;margin:0 auto}
+.section-header{margin-bottom:4rem;text-align:center}
+.section-header .numeral{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(2rem,4vw,3.5rem);color:var(--accent);opacity:0.2;margin-bottom:0.5rem;line-height:1}
+.section-header h2{font-size:clamp(1.8rem,3.5vw,3rem);font-style:italic;margin-bottom:0.75rem}
+.section-header p{font-size:14px;opacity:0.5;max-width:45ch;margin:0 auto;line-height:1.7}
+
+/* Brand wall — minimal text */
+.brand-wall{display:flex;flex-wrap:wrap;gap:1rem 2.5rem;justify-content:center;padding:2rem 0}
+.brand-wall span{font-size:13px;color:var(--accent);opacity:0.6;transition:opacity 0.3s}
+.brand-wall span:hover{opacity:1;cursor:default}
+
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:3rem}
+.product-card{transition:opacity 0.4s}
+.product-card:hover{opacity:0.7}
+.product-card img{width:100%;height:360px;object-fit:cover;display:block}
+.product-card .info{padding:1.25rem 0 0}
+.product-card .info .brand{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:0.25rem}
+.product-card .info h3{font-size:1.1rem;font-style:italic;margin-bottom:0.25rem;font-weight:400}
+.product-card .info .edition{font-size:12px;opacity:0.4}
+.whatsapp{display:inline-block;margin-top:1rem;font-size:11px;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.15rem;transition:all 0.3s}
+.whatsapp:hover{opacity:0.5}
+
+/* Chapter III centered */
+.center-circle{display:flex;flex-direction:column;align-items:center;text-align:center}
+.center-circle .circle-wrap{width:300px;height:300px;border-radius:50%;padding:4px;margin-bottom:2rem}
+.center-circle .circle-wrap{background:linear-gradient(135deg,var(--accent),transparent 60%)}
+.center-circle .circle-inner{width:100%;height:100%;border-radius:50%;overflow:hidden}
+.center-circle .circle-inner img{width:100%;height:100%;object-fit:cover}
+
+footer{padding:5rem 2rem;text-align:center;border-top:1px solid var(--muted)}
+footer h2{font-size:clamp(1.3rem,2.5vw,2rem);font-style:italic;margin-bottom:1rem;font-weight:400}
+footer p{font-size:13px;opacity:0.45;max-width:38ch;margin:0 auto 2rem;line-height:1.7}
+footer a{color:var(--accent);text-decoration:none;font-size:11px;letter-spacing:0.1em;border-bottom:1px solid var(--accent);padding-bottom:0.2rem}
+
+@media(max-width:768px){
+  nav{padding:1.5rem}
+  .product-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav>
+  <span style="font-style:italic;font-size:1.1rem;opacity:0.8">Tamy Boutique</span>
+  <div style="display:flex;gap:2rem">
+    <a href="#brands">Maisons</a>
+    <a href="#ch1">I</a>
+    <a href="#ch2">II</a>
+    <a href="#ch3">III</a>
+    <a href="#concierge">Service</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="pill">Ultra-exclusive curated luxury</div>
+  <div class="image-wrap"><img src="/images/jimmy-choo-gold.jpeg" alt="Hero"></div>
+  <h1>Tamy Boutique</h1>
+  <div class="sub">A premier Libyan atelier of evening statements, Mediterranean heritage, and elite childrenswear. Every piece, personally sourced.</div>
+  <a href="#brands" class="cta">Discover our houses</a>
+</section>
+
+<section id="brands" style="padding-top:3rem">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="numeral">&mdash;</div>
+      <h2>Our Maisons</h2>
+      <p>Authentic pieces from the world's most distinguished fashion houses.</p>
+    </div>
+    <div class="brand-wall">
+      <span>Jimmy Choo</span><span>Versace</span><span>Burberry</span>
+      <span>Hermès</span><span>Dolce & Gabbana</span><span>Hugo Boss</span>
+    </div>
+  </div>
+</section>
+
+<section id="ch1">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="numeral">I</div>
+      <h2>The Evening Luminary</h2>
+      <p>Shimmering evening statements — crystal-buckled bags, glittering heels, and clutch silhouettes for the hour when light turns to gold.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card"><img src="/images/jimmy-choo-clutch.jpeg" alt="Crystal Clutch"><div class="info"><div class="brand">Jimmy Choo</div><h3>Crystal Clutch</h3><div class="edition">Atelier Reserve</div><a class="whatsapp" href="https://wa.me/218916793435?text=Hello%20Tamy%20Boutique%2C%20I%20am%20interested%20in%20the%20Jimmy%20Choo%20Crystal%20Clutch." target="_blank">Inquire</a></div></div>
+      <div class="product-card"><img src="/images/jimmy-choo-bow-pump.jpeg" alt="Bow Pump"><div class="info"><div class="brand">Jimmy Choo</div><h3>Bow Pump</h3><div class="edition">Soirée Edition</div><a class="whatsapp" href="https://wa.me/218916793435?text=Hello%20Tamy%20Boutique%2C%20I%20am%20interested%20in%20the%20Jimmy%20Choo%20Bow%20Pump." target="_blank">Inquire</a></div></div>
+      <div class="product-card"><img src="/images/jimmy-choo-pink-bing.jpeg" alt="Pink Bing Heel"><div class="info"><div class="brand">Jimmy Choo</div><h3>Pink Bing Heel</h3><div class="edition">Limited</div><a class="whatsapp" href="https://wa.me/218916793435?text=Hello%20Tamy%20Boutique%2C%20I%20am%20interested%20in%20the%20Jimmy%20Choo%20Pink%20Bing%20Heel." target="_blank">Inquire</a></div></div>
+      <div class="product-card"><img src="/images/jimmy-choo-snakeskin-heel.jpeg" alt="Snakeskin Heel"><div class="info"><div class="brand">Jimmy Choo</div><h3>Snakeskin Heel</h3><div class="edition">Exclusive</div><a class="whatsapp" href="https://wa.me/218916793435?text=Hello%20Tamy%20Boutique%2C%20I%20am%20interested%20in%20the%20Jimmy%20Choo%20Snakeskin%20Heel." target="_blank">Inquire</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="ch2">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="numeral">II</div>
+      <h2>The Mediterranean Heritage</h2>
+      <p>Versace, Burberry, Hermès, and Dolce & Gabbana — each piece carries the warmth of the coast.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card"><img src="/images/versace-black-bag.jpeg" alt="Black Bag"><div class="info"><div class="brand">Versace</div><h3>Black Leather Bag</h3><a class="whatsapp" href="https://wa.me/218916793435?text=Hello%20Tamy%20Boutique%2C%20I%20am%20interested%20in%20the%20Versace%20Black%20Leather%20Bag." target="_blank">Inquire</a></div></div>
+      <div class="product-card"><img src="/images/dg-beauty-blush.jpeg" alt="Blush"><div class="info"><div class="brand">Dolce & Gabbana</div><h3>Beauty Blush</h3><a class="whatsapp" href="https://wa.me/218916793435?text=Hello%20Tamy%20Boutique%2C%20I%20am%20interested%20in%20the%20Dolce%20%26%20Gabbana%20Beauty%20Blush." target="_blank">Inquire</a></div></div>
+      <div class="product-card"><img src="/images/dg-white-sneakers.jpeg" alt="Sneakers"><div class="info"><div class="brand">Dolce & Gabbana</div><h3>White Sneakers</h3><a class="whatsapp" href="https://wa.me/218916793435?text=Hello%20Tamy%20Boutique%2C%20I%20am%20interested%20in%20the%20Dolce%20%26%20Gabbana%20White%20Sneakers." target="_blank">Inquire</a></div></div>
+      <div class="product-card"><img src="/images/hermes-orange-pouch.jpeg" alt="Pouch"><div class="info"><div class="brand">Hermès</div><h3>Canvas Pouch</h3><div class="edition">Travel Series</div><a class="whatsapp" href="https://wa.me/218916793435?text=Hello%20Tamy%20Boutique%2C%20I%20am%20interested%20in%20the%20Herm%C3%A8s%20Canvas%20Pouch." target="_blank">Inquire</a></div></div>
+      <div class="product-card"><img src="/images/burberry-check-dress.jpeg" alt="Dress"><div class="info"><div class="brand">Burberry</div><h3>Check Dress</h3><div class="edition">Heritage Weave</div><a class="whatsapp" href="https://wa.me/218916793435?text=Hello%20Tamy%20Boutique%2C%20I%20am%20interested%20in%20the%20Burberry%20Check%20Dress." target="_blank">Inquire</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="ch3">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="numeral">III</div>
+      <h2>Enfant Élite</h2>
+      <p>Hugo Boss childrenswear — tailored elegance for the smallest members.</p>
+    </div>
+    <div class="center-circle">
+      <div class="circle-wrap"><div class="circle-inner"><img src="/images/hugo-boss-kids-set.jpeg" alt="Kids Apparel Set"></div></div>
+      <div style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:0.25rem">Hugo Boss</div>
+      <h3 style="font-family:'DM Serif Display',serif;font-style:italic;font-size:1.4rem;margin-bottom:0.25rem">Kids Apparel Set</h3>
+      <div style="font-size:12px;opacity:0.4;margin-bottom:1rem">Petite Collection</div>
+      <a class="whatsapp" href="https://wa.me/218916793435?text=Hello%20Tamy%20Boutique%2C%20I%20am%20interested%20in%20the%20Hugo%20Boss%20Kids%20Apparel%20Set." target="_blank">Inquire via Concierge</a>
+    </div>
+  </div>
+</section>
+
+<footer id="concierge">
+  <h2>Personal service, for every piece</h2>
+  <p>No cart, no quantity selector. Every inquiry connects you directly to Tamy Boutique, where each piece is personally served.</p>
+  <a href="https://wa.me/218916793435" target="_blank" style="display:inline-block;margin-bottom:2rem">Connect via WhatsApp</a>
+  <div style="font-size:11px;opacity:0.3;margin-top:3rem">&copy; 2026 Tamy Boutique. All rights reserved.</div>
+  <a href="https://www.facebook.com/profile.php?id=100090640263316" target="_blank" style="display:inline-block;margin-top:0.75rem;font-size:10px">Follow on Facebook</a>
+</footer>
+</body>
+</html>
